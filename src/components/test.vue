@@ -49,17 +49,5 @@ li {
 a {
   color: red;
 }
-.nav{
-    width:100%;
-    background-color:green;
-    color:black;
-    position:fixed;
-    bottom : 0;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-.nav li a{
-    color:black;
-}
+
 </style>
