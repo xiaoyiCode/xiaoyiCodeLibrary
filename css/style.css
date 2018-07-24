@@ -1,0 +1,12 @@
+html,body,dl,dt,dd,ul,ol,li{ padding: 0; margin: 0; }
+img { border: none; vertical-align: bottom; }
+a { color: #666; outline: 0; text-decoration: none; }
+ul, li { list-style-type: none; padding: 0; margin: 0; }
+.fix:after { display: block; content: "$"; height: 0; clear: both; overflow: hidden; visibility: hidden; }
+.fix { *zoom: 1; }
+.clear { clear: both; height: 0; overflow: hidden;  line-height: 0; }
+.fl { float: left; display: inline; }
+.fr { float: right; display: inline; }
+/* html, body{font-size: 100px;} */
+html, body, .index-box {height: 100%;padding: 0;margin: 0;}
+body{overflow-y: auto;}

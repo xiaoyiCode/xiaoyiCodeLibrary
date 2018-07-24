@@ -1,16 +1,20 @@
 <template>
-  <div class="test">
+  <div class="me">
+      <div class="me">
+          {{$route.query.cc}}
+      </div>
+
     <h1>{{ msg }}</h1>
     <h2>test</h2>
     <div class="content">
-      test
+        设置主页
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'test',
+  name: 'me',
   data () {
     return {
       msg: 'index'
@@ -21,8 +25,19 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.content {
+h1, h2 {
   font-weight: normal;
-  font-size: 50px;
 }
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+a {
+  color: red;
+}
+
 </style>
