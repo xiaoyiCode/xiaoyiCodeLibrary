@@ -1,15 +1,15 @@
 <template>
   <div id="app">
-    <div class="nav">
+    <div class="appnav">
         <ul>
-            <li>
-            <router-link to="/home">home</router-link>
+            <li @click="homeClick()">
+            <router-link :to="{path:'home',query:{'title':'home'}}">home</router-link>
             </li>
-            <li>
-            <router-link to="/news">新闻</router-link>
+            <li @click="newsClick()">
+            <router-link :to="{path:'news',query:{'title':'新闻'}}">新闻</router-link>
             </li>
-            <li>
-            <router-link :to="{path:'go',query:{'cc':'个人设置'}}">我</router-link>
+            <li @click="meClick()">
+            <router-link :to="{path:'me',query:{'title':'个人设置'}}">我</router-link>
             </li>
         </ul>
     </div>
@@ -19,7 +19,18 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  methods: {
+    homeClick:function(){
+      this.$router.push({path:'/home',query:{title: 'home'}})
+    },
+    newsClick:function(){
+      this.$router.push({path:'/news',query:{title: '新闻'}})
+    },
+    meClick:function(){
+      this.$router.push({path:'/me',query:{title: '个人设置'}})
+    }
+  }
 }
 </script>
 
@@ -31,23 +42,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   /* margin-top: 60px; */
-  padding-top: 60px;
+  /* padding-top: 60px; */
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-  width:100%;
-  display:flex;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-  flex-grow:1;
-}
-a {
-  color:black;
-}
-.nav{
+.appnav{
     width:100%;
     height:50px;
     background-color:green;
@@ -58,4 +55,19 @@ a {
     justify-content:center;
     align-items:center;
 }
+.appnav ul {
+  list-style-type: none;
+  padding: 0;
+  width:100%;
+  display:flex;
+}
+.appnav li {
+  display: inline-block;
+  margin: 0 10px;
+  flex-grow:1;
+}
+.appnav a {
+  color:black;
+}
+
 </style>

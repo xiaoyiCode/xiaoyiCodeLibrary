@@ -2,11 +2,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import '../../css/style.css' /*引入公共样式*/
 
-Vue.use(Router)
-
 import test from '@/components/test'
 import HelloWorld from '@/components/HelloWorld'
 import me from '@/components/me'
+import newsclass from '@/components/newsClass/newsclass'
 
 Vue.use(Router)
 
@@ -28,9 +27,24 @@ export default new Router({
       component: test
     },
     {
-      path:'/go',
+      path:'/me',
       // name:'tt',
-      component:me
+      component:me,
     },
+    {
+      path:'/newsClass/newsclass',
+      // name:'tt',
+      component:newsclass,
+
+
+      // children: [{ 
+      //   path: '/', 
+      //   redirect: to=>{
+      //     return '/newsClass'
+      //   },
+      //   component: HelloWorld,
+      //   // redirect: '/' 
+      // }]
+    }
   ]
 })

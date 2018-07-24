@@ -1,5 +1,14 @@
 <template>
   <div class="hello">
+    <div class="title">
+      <div class="left">
+        &lt;返回
+      </div>
+      {{$route.query.title}}
+      <div class="right">
+        设置
+      </div>
+    </div>
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
     <ul>
@@ -96,7 +105,27 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.title{
+  height: 40px;
+  width: 100%;
+  display: flex;
+  /* overflow: hidden; */
+  justify-content: center;
+  align-items: center;
+  background-color: green;
+}
+.left{
+  position: absolute;
+  left: 0;
+  /* float: left; */
+}
+.right{
+  position: absolute;
+  right: 0;
+  /* float: right; */
+}
 h1, h2 {
+  margin: 0;
   font-weight: normal;
 }
 ul {
@@ -107,7 +136,5 @@ li {
   display: inline-block;
   margin: 0 10px;
 }
-a {
-  color: #42b983;
-}
+
 </style>

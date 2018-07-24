@@ -1,16 +1,6 @@
 <template>
-  <div class="test">
-    <div class="title">
-      <div class="left">
-        &lt;返回
-      </div>
-      {{$route.query.title}}
-      <div class="right">
-        设置
-      </div>
-    </div>
-
-    <!-- 调用tabs组件 -->
+<div class="tabs-contents">
+<!-- 调用tabs组件 -->
  <tabs :flag.sync='tabsShowFlag' :navtitle='navTitle' :navdata='navData'>
  <div class="tabs-body">
  <div v-if='navData[0].showFlag>0'>
@@ -46,12 +36,11 @@
  </div>
  </div>
  </tabs>
-
-  </div>
+ 
+</div>
 </template>
-
 <script>
-import tabs from './newsClass/tabs-contents.vue' //引入组件
+import tabs from './tabs-contents.vue' //引入组件
 export default {
  components: {
  tabs,
@@ -81,30 +70,5 @@ export default {
  },
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.title{
-  height: 40px;
-  width: 100%;
-  display: flex;
-  /* overflow: hidden; */
-  justify-content: center;
-  align-items: center;
-  background-color: green;
-}
-.left{
-  position: absolute;
-  left: 0;
-  /* float: left; */
-}
-.right{
-  position: absolute;
-  right: 0;
-  /* float: right; */
-}
-.content {
-  font-weight: normal;
-  font-size: 50px;
-}
 </style>
