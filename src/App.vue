@@ -32,7 +32,7 @@ export default {
     },
     meClick:function(){
       this.$router.push({path:'/me',query:{title: '个人设置'}})
-    },
+    }
     // bannerClick:function(){
     //   this.$router.push({path:'/swiper/banner',query:{title: '广告'}})
     // }
