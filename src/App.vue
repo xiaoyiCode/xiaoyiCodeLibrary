@@ -11,6 +11,9 @@
             <li @click="meClick()">
             <router-link :to="{path:'me',query:{'title':'个人设置'}}">我</router-link>
             </li>
+            <!-- <li @click="bannerClick()">
+            <router-link :to="{path:'swiper/banner',query:{'title':'banner'}}">广告</router-link>
+            </li> -->
         </ul>
     </div>
     <router-view></router-view>
@@ -29,7 +32,10 @@ export default {
     },
     meClick:function(){
       this.$router.push({path:'/me',query:{title: '个人设置'}})
-    }
+    },
+    // bannerClick:function(){
+    //   this.$router.push({path:'/swiper/banner',query:{title: '广告'}})
+    // }
   }
 }
 </script>

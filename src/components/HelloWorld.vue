@@ -9,96 +9,49 @@
         设置
       </div>
     </div>
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
     <ul>
-      <li>
-        <a
-          href="https://vuejs.org"
-          target="_blank"
-        >
-          Core Docs
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://forum.vuejs.org"
-          target="_blank"
-        >
-          Forum
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://chat.vuejs.org"
-          target="_blank"
-        >
-          Community Chat
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://twitter.com/vuejs"
-          target="_blank"
-        >
-          Twitter
-        </a>
-      </li>
-      <br>
-      <li>
-        <a
-          href="http://vuejs-templates.github.io/webpack/"
-          target="_blank"
-        >
-          Docs for This Template
-        </a>
-      </li>
+      <li v-for="(item,index) in tabs" :class="{active:index == num}" @click="tab(index)">{{item}}</li>
     </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li>
-        <a
-          href="http://router.vuejs.org/"
-          target="_blank"
-        >
-          vue-router
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vuex.vuejs.org/"
-          target="_blank"
-        >
-          vuex
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vue-loader.vuejs.org/"
-          target="_blank"
-        >
-          vue-loader
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-        >
-          awesome-vue
-        </a>
-      </li>
-    </ul>
+    <div class="tabCon">
+      <div v-for='(itemCon,index) in tabContents' v-show=" index == num">
+        <img :src="itemCon" alt="banner" width="100%" height="auto">
+        <!-- {{itemCon}} -->
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: 'HelloWorld',
   data () {
+     
     return {
-      msg: 'Welcome to Your Vue.js App'
+      tabs: ["标题一", "标题二","标题三"],
+      tabContents: [],
+      num: 0,
+      activeName: null
     }
+  },
+  methods: {
+    tab(index) {
+      this.num = index;
+    }
+  },
+  created() {
+    axios.all([
+      axios.get('https://bird.ioliu.cn/v1?url=http://www.bing.com/HPImageArchive.aspx?idx=0&format=js&n=1'),
+      axios.get('https://bird.ioliu.cn/v1?url=http://www.bing.com/HPImageArchive.aspx?format=js&idx=1&n=1')
+    ])
+    .then(axios.spread((userResp, reposResp) =>{
+      let a = "http://bing.com/" + userResp.data.images[0].url;
+      let b = "http://bing.com/" + reposResp.data.images[0].url;
+
+      // 上面两个请求都完成后，才执行这个回调方法
+      this.tabContents.push(a)
+      this.tabContents.push(b)
+    }))
   }
 }
 </script>
@@ -131,10 +84,20 @@ h1, h2 {
 ul {
   list-style-type: none;
   padding: 0;
+  height: 30px;
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
 }
 li {
-  display: inline-block;
-  margin: 0 10px;
+  /* display: inline-block; */
+  flex-grow: 1;
+  /* margin: 0 10px; */
+  height: 100%;
+  /* vertical-align: middle; */
+  font: 16px/30px "微软雅黑"
 }
-
+.active {
+    background: orangered;
+}
 </style>

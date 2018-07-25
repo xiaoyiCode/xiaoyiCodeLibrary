@@ -10,7 +10,15 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/swiper/banner':{//此处并非一定和url一致。
+        target:'http://bing.com',
+        changeOrigin:true,//允许跨域
+        pathRewrite:{
+          '^/swiper/banner': ''
+        }
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
