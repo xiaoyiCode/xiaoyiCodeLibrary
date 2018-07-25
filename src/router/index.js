@@ -34,17 +34,7 @@ export default new Router({
     {
       path:'/newsClass/newsclass',
       // name:'tt',
-      component:newsclass,
-
-
-      // children: [{ 
-      //   path: '/', 
-      //   redirect: to=>{
-      //     return '/newsClass'
-      //   },
-      //   component: HelloWorld,
-      //   // redirect: '/' 
-      // }]
+      component:newsclass
     }
   ]
 })
